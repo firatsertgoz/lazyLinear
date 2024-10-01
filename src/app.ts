@@ -45,15 +45,17 @@ app.post('/upload-transcript', upload.single('transcript'), async (req: Request,
 
     try {
       const records = parse(fileContent, {
-        columns: false, // Don't use headers
+        columns: true, // Use the first row as headers
         skip_empty_lines: true,
-        relax_column_count: true // Allow varying number of columns
+        trim: true // Trim whitespace from fields
       });
 
       console.log('Parsed records:', records.slice(0, 5)); // Log first 5 records
 
-      // Join all sentences into a single transcript
-      transcript = records.map((record: any[]) => record[1] || '').join(' ');
+      // Join all sentences into a single transcript, including speaker information
+      transcript = records.map((record: any) => 
+        `${record.speaker_name}: ${record.sentence}`
+      ).join(' ');
 
       if (!transcript) {
         throw new Error('No valid sentences found in CSV');

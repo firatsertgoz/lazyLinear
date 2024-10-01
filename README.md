@@ -7,6 +7,7 @@ This project is a Node.js application that processes transcripts, analyzes them 
 - Upload transcripts via CSV file
 - Process transcripts using Claude AI for analysis
 - Create tasks in Linear based on the analysis results
+- Currently only supports Fireflies.ai transcripts!
 
 ## Prerequisites
 
@@ -79,5 +80,6 @@ To run the project in development mode with hot reloading:
 ```
 npm run dev
 ```
+
 
 ##
