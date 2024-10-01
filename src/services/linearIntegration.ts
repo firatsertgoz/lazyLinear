@@ -9,7 +9,7 @@ class LinearIntegration {
 
   async createTask(title: string, description: string): Promise<any> {
     try {
-      const issue = await this.client.createIssue({
+      const issue = await this.client.issueCreate({
         title,
         description,
         teamId: 'your_team_id_here', // Replace with your actual team ID
