@@ -24,7 +24,7 @@ class Orchestrator {
     
     // Assuming structuredIssues is an array of issue objects
     for (const issue of structuredIssues as Issue[]) {
-      await this.linear.createTask(issue.title, issue.description);
+    //   await this.linear.createTask(issue.title, issue.description);
     }
   }
 }
